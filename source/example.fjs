@@ -1,0 +1,101 @@
+
+
+
+
+async function exampleFJS(){
+
+
+	//  Basic assignmnet.
+
+	const add = ƒ( a, b ){ return a + b }
+	console.log( add( 2, 3 ))
+
+
+	//  Basic assignmnet sans argument parenthses.
+
+	const tick = ƒ { console.log( 'tick' )}
+	tick()
+
+
+	//  Named function.
+
+	ƒ named1(){ console.log( this.name )}
+
+
+	//  Named function, sans argument parentheses.
+
+	ƒ named2 { console.log( this.name )}
+
+
+	//  Inline callback.
+
+	[ 1, 2, 3 ]
+	.map( ƒ( x ){ return x * 2 })
+
+
+	//  Higher-order with closure.
+
+	const times = ƒ( n, fn ){ for( let i = 0; i < n; i ++ ) fn( i )}
+	times( 3, ƒ( i ){ console.log( i )})
+
+
+	//  Immediately-invoked function expression (IIFE).
+
+	const msg = ( ƒ( name ){ return `Hello, ${ name }`})( 'F-This' )
+	console.log( msg )
+
+
+	//  Default / rest / destructuring params.
+
+	const 
+	format = ƒ({ a = 1, b = 2 } = {}){ return `${ a }:${ b }`},
+	sum = ƒ( ...xs ){ return xs.reduce( ƒ( s, x ) s + x, 0 )}
+	
+
+	//  Methods and properties.
+
+	const counter = {
+	
+		n: 0,
+		increment: ƒ { this.n ++ },
+		get: ƒ { return this.n }
+	}
+
+
+	//  Nested braces in bodies.
+
+	const pick = ƒ( obj, keys ){
+	
+		const out = {}
+		for( const k of keys ){ if( k in obj ){ out[ k ] = obj[ k ]}}
+		return out
+	}
+
+
+	//  Inline promise.
+
+	await ( async ƒ(){ return 42 })()
+
+	
+	//  Inline promise sans argument parentheses.
+
+	await ( async ƒ { return 67 })()
+
+
+	//  Named inline promise.
+
+	async ƒ doWork { await new Promise( ƒ( r ){ setTimeout( r, 10 )})}
+}
+
+
+
+
+//  Purely for JavaScript console comparisons…
+
+window.exampleFJS = exampleFJS
+console.log( 'exampleFJS', exampleFJS.toString() )
+
+
+
+
+export default exampleFJS

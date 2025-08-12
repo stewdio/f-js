@@ -1,0 +1,15 @@
+{
+  "name": "js-bits",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:fjs": "node f-this.js",
+    "start": "npm run build:fjs && node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "type": "module"
+}

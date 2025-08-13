@@ -17,7 +17,7 @@ const add = ƒ( a, b ){ return a + b }
 console.log( add( 2, 3 ))
 ```
 
-##  Basic assignment sans argument parenthses
+##  Basic assignment sans argument parentheses
 ```javascript
 const tick = ƒ { console.log( 'tick' )}  
 tick()

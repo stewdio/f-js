@@ -1,50 +1,3 @@
-import { promises as fs } from 'fs'
-import path from 'path'
-
-
-const
-sourceFolder = 'source',
-distroFolder = 'distro'
-
-async function* walk( dir ){
-
-	for( const e of await fs.readdir( dir, { withFileTypes: true })){
-		
-		const p = path.join( dir, e.name )
-		if( e.isDirectory() ) yield* walk( p )
-		else yield p
-	}
-}
-await fs.rm( distroFolder, { recursive: true, force: true })
-await fs.mkdir( distroFolder, { recursive: true })
-for await ( const file of walk( sourceFolder )){
-	
-	const 
-	rel = path.relative( sourceFolder, file ),
-	// outPath = path.join( distroFolder, rel.replace( /\.fjs$/i, '.js' ))
-	outPath = path.join( distroFolder, rel )
-
-	await fs.mkdir( path.dirname( outPath ), { recursive: true })
-	if( file.endsWith( '.fjs' )){
-	
-		const 
-		src = await fs.readFile( file, 'utf8' ),
-		js = transformF( src )
-
-		await fs.writeFile( outPath, js, 'utf8' )
-	}
-	else {
-	
-		await fs.copyFile( file, path.join( distroFolder, rel ))
-	}
-}
-console.log( '“F-this” built ~/source → ~/distro with *.fjs transform.' )
-
-
-
-
-
-
 
 
 /*
@@ -52,7 +5,7 @@ console.log( '“F-this” built ~/source → ~/distro with *.fjs transform.' )
 
 Notes / caveats
 
-- Named ƒ forms are emitted as const declarations. Use them only where declarations are legal (e.g., at top level or inside blocks, not inside object literals or class bodies). If you need let/var, you can change decl in transformF to suit.
+- Named ƒ forms are emitted as const declarations. Use them only where declarations are legal (e.g., at top level or inside blocks, not inside object literals or class bodies). If you need let/var, you can change decl in fThis to suit.
 - Arrow semantics apply (lexical this, no arguments, not constructible).
 - The transformer skips strings, comments, and template literals and balances parentheses/braces, so it’s resilient to most real-world code.
 - Semicolons are appended for named forms to avoid ASI edge-cases.
@@ -63,7 +16,8 @@ Notes / caveats
 
 */
 
-function transformF(src, { decl = "const" } = {}) {
+// function fThis(src, { decl = "const" } = {}) {
+function fThis(src, { decl = "var" } = {}) {
   const S = { CODE:0, SQ:1, DQ:2, LINE:3, BLOCK:4, TMP:5, TMPEXP:6 };
   let out = "", i = 0, n = src.length, state = S.CODE;
 
@@ -72,7 +26,7 @@ function transformF(src, { decl = "const" } = {}) {
   const isIdCont  = ch => ch && /[$_\u200C\u200D\p{ID_Continue}]/u.test(ch);
 
   // Recurse on substrings so nested ƒ get transformed too
-  const rec = s => transformF(s, { decl });
+  const rec = s => fThis(s, { decl });
   const cleanExpr = s => rec(s).replace(/\s*;+\s*$/, ""); // trim trailing ; in expression contexts
   const wrapAnon = s => `(${s})`; // anonymous results wrapped for safety
 
@@ -283,3 +237,5 @@ function transformF(src, { decl = "const" } = {}) {
   }
   return out;
 }
+
+export default fThis

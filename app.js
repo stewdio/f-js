@@ -36,7 +36,7 @@ http.createServer(( req, res )=>{
 		'.html': 'text/html; charset=utf-8',
 		'.css':  'text/css; charset=utf-8',
 		'.js':   'application/javascript; charset=utf-8',
-		'.fjs':  'application/javascript; charset=utf-8',
+		'.fjs':  'application/javascript; charset=utf-8',//  Just in case we decide to keep `.fjs` extension in the future?
 		'.json': 'application/json; charset=utf-8',
 		'.png':  'image/png',
 		'.jpg':  'image/jpeg',

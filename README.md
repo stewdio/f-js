@@ -17,7 +17,7 @@ const add = ƒ( a, b ){ return a + b }
 console.log( add( 2, 3 ))
 ```
 
-##  Basic assignment sans argument parenthses
+##  Basic assignment sans argument parentheses
 ```javascript
 const tick = ƒ { console.log( 'tick' )}  
 tick()
@@ -28,7 +28,7 @@ tick()
 ƒ named1(){ console.log( this.name )}
 ```
 
-##  Named function, sans argument parentheses
+##  Named function sans argument parentheses
 ```javascript
 ƒ named2 { console.log( this.name )}
 ```
@@ -69,7 +69,6 @@ const counter = {
 ```
 
 ##  Nested braces in bodies
-
 ```javascript
 const pick = ƒ( obj, keys ){
 
@@ -94,7 +93,7 @@ await ( async ƒ { return 67 })()
 async ƒ doWork { await new Promise( ƒ( r ){ setTimeout( r, 10 )})}
 ```
 
-<br><br>
+<br>
 
 
 #  Try it out
@@ -102,9 +101,16 @@ async ƒ doWork { await new Promise( ƒ( r ){ setTimeout( r, 10 )})}
 ```javascript
 `npm start`
 ```
+All `.fjs` files will be processed and output as proper `.js` files. The `fThis(…)` function will be available to you in the JavaScript console. 
+```javascript
+var testString = fThis( `ƒ test console.log( 'Works!' )` )
+eval( testString )
+test()//  “Works!”
+```
 
 
 <br><br><br><br>
+
 
 
 ¹ I am an atheist. 

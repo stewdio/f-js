@@ -11,7 +11,7 @@ async function exampleFJS(){
 	console.log( add( 2, 3 ))
 
 
-	//  Basic assignment sans argument parenthses.
+	//  Basic assignment sans argument parentheses.
 
 	const tick = ƒ { console.log( 'tick' )}
 	tick()

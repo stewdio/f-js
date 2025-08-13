@@ -8,16 +8,16 @@ I’ve always hated
 [JavaScript’s _Arrow Function_ expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) syntax. It’s like some weird 
 [castling](https://en.wikipedia.org/wiki/Castling) move where the important components switch places for no good reason. It feels backward. Why is the `=>` (the component that arguably signifies that we are dealing with a function at all) placed _after_ the argument parentheses? 
 
-I remember JavaScript before arrow functions even existed. It took me years to ease my skepticism of its differing `this` binding. (I’d become accustomed to `this` tricks, but since then I’ve grown to respect how arrows handle things.) I still hate the look of it, though. Like… a lot. So I took matters into my own hands. Now I can just write `ƒ` as God intended*. (On a Mac this is accomplished by pressing __Option__ + __F__.) No more stupid arrows. And no more writing out `function` either. This is so much cleaner looking. 
+I remember JavaScript before arrow functions even existed. It took me years to ease my skepticism of its differing `this` binding. (I’d become accustomed to `this` tricks, but since then I’ve grown to respect how arrows handle things.) I still hate the look of it, though. Like… a lot. So I took matters into my own hands. Now I can just write `ƒ` as God intended¹. (On a Mac this is accomplished by pressing __Option__ + __F__.) No more stupid arrows. And no more writing out `function` either. This is so much cleaner looking. 
 
 
-##  Basic assignmnet
+##  Basic assignment
 ```javascript
 const add = ƒ( a, b ){ return a + b }  
 console.log( add( 2, 3 ))
 ```
 
-##  Basic assignmnet sans argument parenthses
+##  Basic assignment sans argument parenthses
 ```javascript
 const tick = ƒ { console.log( 'tick' )}  
 tick()
@@ -39,7 +39,7 @@ tick()
 .map( ƒ( x ){ return x * 2 })
 ```
 
-##  Higher-order with closures
+##  Higher-order with closure
 ```javascript
 const times = ƒ( n, fn ){ for( let i = 0; i < n; i ++ ) fn( i )}
 times( 3, ƒ( i ){ console.log( i )})
@@ -94,7 +94,7 @@ await ( async ƒ { return 67 })()
 async ƒ doWork { await new Promise( ƒ( r ){ setTimeout( r, 10 )})}
 ```
 
-
+<br><br>
 
 
 #  Try it out
@@ -104,4 +104,7 @@ async ƒ doWork { await new Promise( ƒ( r ){ setTimeout( r, 10 )})}
 ```
 
 
-* I am an atheist. 
+<br><br><br><br>
+
+
+¹ I am an atheist. 

@@ -117,7 +117,9 @@ DId you make it this far in the `README`? Wondering why there’s no __ƒ.js__ [
 
 
 
-##  Example F.js code
+##  ƒ.js examples
+
+Let’s have a look at a full battery of example use cases. Declarations. Expressions. Named. Lambdas. Arguments. No arguments. Nestings. Closures. We got it all, baby!
 
 ###  Basic assignment
 ```javascript
@@ -202,9 +204,12 @@ async ƒ doWork { await new Promise( ƒ( r ){ setTimeout( r, 10 )})}
 ```
 
 
+
+
 <br><br><br><br>
 
 
 
+
 ¹ I am an atheist.  
-² Folks who are concerned by my use of `var` in some of the examples above(instead of `const` or `let`) may be ignorant to the joys of [function scope](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures#scoping_with_let_and_const), which is of course the standard for `function` declarations. Plus `var` lets you redeclare to your heart’s content, which means no errors when repeatedly pasting code snippets directly into your console. 
+² Folks who are concerned by my use of `var` in some of the examples above(instead of `const` or `let`) may be ignorant to the joys of [function scope](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures#scoping_with_let_and_const), which is of course the standard for `function` declarations. Plus `var` lets you redeclare to your heart’s content, which means no errors when repeatedly pasting code snippets directly into your console. Sure, go ahead and use `const` and `let` for “interior code.” But for fast [REPL](https://en.wikipedia.org/wiki/Read–eval–print_loop) pasting, isn’t `var` friendlier to the paster? 

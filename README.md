@@ -56,7 +56,7 @@ Doesn’t that read beautifully? You know it does. You know you’re intrigued. 
 
 
 
-###  Look Ma, no arguments
+###  Look, Ma, no arguments
 
 Arrow functions really show their ick when it comes to argument-free function expressions. In these cases the parentheses and “arrows” [typographically](https://en.wikipedia.org/wiki/Typography) visualize transforming _absolutely nothing at all:_ 
 
@@ -93,7 +93,7 @@ This demo app copies the content of the `/source` folder into a `/distro` folder
 `npm start`
 ```
 
-###  `fThis`, we’ll do it live
+###  ƒ it, we’ll do it live
 
 This demo also enables live __ƒ.js__ test-driving right in your JavaScript console:
 ```javascript
@@ -107,7 +107,7 @@ Or all in one go:
 eval( fThis( `ƒ test console.log( 'Works!' )` )); test()
 ```
 
-DId you make it this far in the `README`? Wondering why there’s no __ƒ.js__ [Babel plugin](https://babeljs.io/)? It’s because _you_ haven’t submitted a PR for one yet. ([Fork __ƒ.js__ here](https://github.com/stewdio/f-js/fork).)
+Did you make it this far in the `README`? Wondering why there’s no __ƒ.js__ [Babel plugin](https://babeljs.io/)? It’s because _you_ haven’t submitted a PR for one yet. ([Fork __ƒ.js__ here](https://github.com/stewdio/f-js/fork).)
 
 
 
